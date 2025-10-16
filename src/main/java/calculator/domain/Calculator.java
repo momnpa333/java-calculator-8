@@ -36,13 +36,13 @@ public class Calculator {
         static void isValid(String[] operand) {
             for (String s : operand) {
                 checkLong(s);
-                checkNegative(Long.parseLong(s.trim()));
+                checkNegative(Long.parseLong(s));
             }
         }
 
         private static void checkLong(String s) {
             try {
-                Long.parseLong(s.trim());
+                Long.parseLong(s);
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("정수 형식이 아닙니다: " + s);
             }
