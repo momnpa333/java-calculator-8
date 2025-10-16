@@ -3,7 +3,6 @@ package calculator.domain;
 import calculator.view.Viewer;
 
 public class Calculator {
-
     private final Parser parser;
     private final Viewer viewer;
 
@@ -13,14 +12,22 @@ public class Calculator {
     }
 
     public void run() {
-        //TODO 입력화면
-        //TODO 동작
-        //TODO 출력화면
+        String input = viewer.readInput();
+        String result = process(input);
+        viewer.printResult(result);
     }
 
     private String process(String input) {
-        //TODO 파싱
-        //TODO 계산
-        return "";
+        String[] operand = parser.getOperand(input);
+        Long sum = calculate(operand);
+        return String.valueOf(sum);
+    }
+
+    private Long calculate(String[] operand) {
+        Long sum = 0L;
+        for (String number : operand) {
+            sum += Long.parseLong(number);
+        }
+        return sum;
     }
 }
