@@ -24,10 +24,34 @@ public class Calculator {
     }
 
     private Long calculate(String[] operand) {
+        Validator.isValid(operand);
         Long sum = 0L;
         for (String number : operand) {
             sum += Long.parseLong(number);
         }
         return sum;
+    }
+
+    private static final class Validator {
+        static void isValid(String[] operand) {
+            for (String s : operand) {
+                checkLong(s);
+                checkNegative(Long.parseLong(s.trim()));
+            }
+        }
+
+        private static void checkLong(String s) {
+            try {
+                Long.parseLong(s.trim());
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("정수 형식이 아닙니다: " + s);
+            }
+        }
+
+        private static void checkNegative(long num) {
+            if (num < 0) {
+                throw new IllegalArgumentException("음수는 허용되지 않습니다: " + num);
+            }
+        }
     }
 }
