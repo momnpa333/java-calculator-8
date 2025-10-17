@@ -64,4 +64,4 @@
 
 ## 리팩토링
 
-- [ ] Application에서 의존성 주입을 하는 방식 -> 의존성 관련 class 제작
+- [x] Application에서 의존성 주입을 하는 방식 -> 의존성 관련 class 제작
