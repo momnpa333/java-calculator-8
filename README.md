@@ -65,3 +65,4 @@
 ## 리팩토링
 
 - [x] Application에서 의존성 주입을 하는 방식 -> 의존성 관련 class 제작
+- [x] InputView, OutputView 제거 및 통합
