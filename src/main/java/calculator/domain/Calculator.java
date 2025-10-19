@@ -36,7 +36,7 @@ public class Calculator {
         static void isValid(String[] operand) {
             for (String s : operand) {
                 checkLong(s);
-                checkNegative(Long.parseLong(s));
+                checkPositive(Long.parseLong(s));
             }
         }
 
@@ -48,8 +48,8 @@ public class Calculator {
             }
         }
 
-        private static void checkNegative(long num) {
-            if (num < 0) {
+        private static void checkPositive(long num) {
+            if (num <= 0) {
                 throw new IllegalArgumentException("음수는 허용되지 않습니다: " + num);
             }
         }
